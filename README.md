@@ -1,24 +1,50 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                        |
+| ------------------ | ------ | -----------                    |
+| nickname           | string | null: false                    |
+| email              | string | null: false, unique_constraint |
+| encrypted_password | string | null: false                    |
 
-* Ruby version
+## Association
+-- has_many :items
+-- has_many :purchasers
 
-* System dependencies
+## items テーブル
 
-* Configuration
+| Column    | Type       | Options                        |
+| ----------| ------     | -----------                    |
+| name      | string     | null: false                    |
+| category  | string     | null: false                    |
+| price     | integer    | null: false                    |
+| seller    | string     | null: false                    |
+| user      | references | null: false, foreign_key: true |
 
-* Database creation
+## Association
+-- belongs_to :user
+-- has_many   :purchasers
 
-* Database initialization
+## purchasers テーブル
 
-* How to run the test suite
+| Column     | Type       | Options                       |
+| -----------| -----------| ------------------------------|
+| name       | string     | null: false                   |
+| item       | references | null: false,foreign_key: true |
+| user       | references | null: false,foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+## Association
+-- has_one    :profile
+-- belongs_to :user
+-- belongs_to :item
 
-* Deployment instructions
+## profiles テーブル
 
-* ...
+| Column     | Type       | Options                       |
+| -----------| -----------| ------------------------------|
+| address    | string     | null: false                   |
+| purchaser  | references | null: false,foreign_key: true |
+
+## Association
+-- belongs_to :purchaser
