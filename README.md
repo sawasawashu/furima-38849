@@ -21,12 +21,14 @@
 
 | Column          | Type       | Options                       |
 | ----------      | ------     | -----------                   |
+| product_name    | string     | null: false                   |
 | introduction    | text       | null: false                   |
 | category_id     | integer    | null: false                   |
 | status_id       | integer    | null: false                   |
 | charge_id       | integer    | null: false                   |
 | region_id       | integer    | null: false                   |
 | delivery_day_id | integer    | null: false                   |
+| price           | integer    | null: false                   |
 | user            | references | null: false,foreign_key: true |
 
 ## Association
@@ -49,9 +51,9 @@
 
 | Column           | Type       | Options                       |
 | ---------------- | -----------| ------------------------------|
-| postal_code      | integer    | null: false                   |
+| postal_code      | string     | null: false                   |
 | region_id        | integer    | null: false                   |
-| municipalities   | string     | null: false                   |
+| municipality     | string     | null: false                   |
 | address          | string     | null: false                   |
 | building_name    | string     |                               |
 | telephone_number | string     | null: false                   |
