@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-    image           { "test_image.png"}
     product_name    { Faker::Name.name }
     introduction    { Faker::Lorem.sentence }
     category_id     { 2}
