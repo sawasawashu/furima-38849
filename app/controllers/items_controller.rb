@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_login, only: :new
-  before_action :authenticate_user!, only: :edit
+  before_action :authenticate_user!, only: [:new,:edit]
   before_action :move_to_index, only: :edit
   before_action :set_item, only: [:show, :edit, :update]
 
@@ -40,12 +39,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:product_name, :introduction, :category_id, :status_id, :charge_id, :region_id, :delivery_day_id,
                                  :price, :image).merge(user_id: current_user.id)
-  end
-
-  def move_to_login
-    return if user_signed_in?
-
-    redirect_to new_user_session_path
   end
 
   def move_to_index
