@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
  
   def index
     @profile = Profile.new 
+    @items = Item.find(params[:item_id])
   end
 
   def create
