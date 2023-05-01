@@ -28,7 +28,7 @@
       </p>
     </div>
 
-    <%= form_with model: @purchaser_profile id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @purchaser_profile, url: item_purchasers_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -67,7 +67,6 @@
         <%= f.text_field :hoge, class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
       </div>
     </div>
-    <%# /カード情報の入力 %>
     
     <%# 配送先の入力 %>
     <div class='shipping-address-form'>
@@ -124,4 +123,5 @@
     <% end %>
   </div>
 </div>
+
 <%= render "shared/second-footer"%>
