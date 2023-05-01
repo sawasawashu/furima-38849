@@ -8,4 +8,5 @@ class PurchasersController < ApplicationController
   def create
   end
   
+
 end
