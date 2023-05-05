@@ -87,6 +87,12 @@ RSpec.describe PurchaserProfile, type: :model do
         expect(@purchaser_profile.errors.full_messages).to include("Item can't be blank")
       end
 
+      it 'tokenが空では購入できない' do
+        @purchaser_profile.token = ''
+        @purchaser_profile.valid?
+        expect(@purchaser_profile.errors.full_messages).to include("Token can't be blank")
+      end
+
     end
   end
 
