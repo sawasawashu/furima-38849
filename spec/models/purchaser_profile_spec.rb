@@ -24,13 +24,13 @@ RSpec.describe PurchaserProfile, type: :model do
       it 'postal_codeが空では購入できない' do
         @purchaser_profile.postal_code = ''
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid")
+        expect(@purchaser_profile.errors.full_messages).to include("Postal code can't be blank", 'Postal code is invalid')
       end
 
       it 'postal_codeはハイフンを含んだ正しい形式でないと購入できない' do
         @purchaser_profile.postal_code = '1234567'
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Postal code is invalid")
+        expect(@purchaser_profile.errors.full_messages).to include('Postal code is invalid')
       end
 
       it 'region_idが1では購入できない' do
@@ -54,25 +54,26 @@ RSpec.describe PurchaserProfile, type: :model do
       it 'telephone_numberが空では購入できない' do
         @purchaser_profile.telephone_number = ''
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Telephone number can't be blank", "Telephone number is invalid")
+        expect(@purchaser_profile.errors.full_messages).to include("Telephone number can't be blank",
+                                                                   'Telephone number is invalid')
       end
 
       it 'telephone_numberは9桁以下では購入できない' do
         @purchaser_profile.telephone_number = '080000000'
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchaser_profile.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it 'telephone_numberは12桁以上では購入できない' do
         @purchaser_profile.telephone_number = '08091999020300'
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchaser_profile.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it 'telephone_numberは半角数字でないと購入できない' do
         @purchaser_profile.telephone_number = '０８０９８８８６５４３'
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchaser_profile.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it 'userが紐づいていいないと購入できない' do
@@ -92,8 +93,6 @@ RSpec.describe PurchaserProfile, type: :model do
         @purchaser_profile.valid?
         expect(@purchaser_profile.errors.full_messages).to include("Token can't be blank")
       end
-
     end
   end
-
 end
