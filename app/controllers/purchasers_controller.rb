@@ -10,7 +10,6 @@ class PurchasersController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @purchaser_profile = PurchaserProfile.new(purchaser_params)
-    binding.pry
     if @purchaser_profile.valid?
       pay_item
       @purchaser_profile.save
