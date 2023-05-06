@@ -3,12 +3,10 @@ class PurchasersController < ApplicationController
   before_action :move_to_index, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @purchaser_profile = PurchaserProfile.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchaser_profile = PurchaserProfile.new(purchaser_params)
     if @purchaser_profile.valid?
       pay_item
