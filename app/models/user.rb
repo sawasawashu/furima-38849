@@ -13,4 +13,5 @@ class User < ApplicationRecord
   validates :password, format: { with: pattern }
 
   has_many :items
+  has_many :purchasers
 end
