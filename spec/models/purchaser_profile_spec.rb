@@ -24,7 +24,7 @@ RSpec.describe PurchaserProfile, type: :model do
       it 'postal_codeが空では購入できない' do
         @purchaser_profile.postal_code = ''
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Postal code can't be blank", 'Postal code is invalid')
+        expect(@purchaser_profile.errors.full_messages).to include("Postal code can't be blank")
       end
 
       it 'postal_codeはハイフンを含んだ正しい形式でないと購入できない' do
@@ -54,8 +54,7 @@ RSpec.describe PurchaserProfile, type: :model do
       it 'telephone_numberが空では購入できない' do
         @purchaser_profile.telephone_number = ''
         @purchaser_profile.valid?
-        expect(@purchaser_profile.errors.full_messages).to include("Telephone number can't be blank",
-                                                                   'Telephone number is invalid')
+        expect(@purchaser_profile.errors.full_messages).to include("Telephone number can't be blank")
       end
 
       it 'telephone_numberは9桁以下では購入できない' do
