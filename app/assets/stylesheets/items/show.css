@@ -191,3 +191,15 @@ form textarea {
   font-size: 23px;
 }
 
+.comments{
+  background-color: white;
+  width: 50vw;
+  border-radius: 20px;
+  padding: 10px ;
+  margin-bottom: 20px;
+}
+
+h4{
+  color: violet;
+}
+
