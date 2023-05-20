@@ -31,5 +31,7 @@ RSpec.describe '口コミ投稿', type: :system do
     end.to change { Comment.count }.by(1)
     # 詳細ページにリダイレクトされることを確認する
     expect(current_path).to eq(item_path(@item))
+    # 詳細ページ上に先ほどのコメント内容が含まれていることを確認する
+    expect(page).to have_content @comment
   end
 end
