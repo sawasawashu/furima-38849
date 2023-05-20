@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-def basic_pass(path) 
-  username = ENV["BASIC_AUTH_USER"]
-  password = ENV["BASIC_AUTH_PASSWORD"]
+def basic_pass(path)
+  username = ENV['BASIC_AUTH_USER']
+  password = ENV['BASIC_AUTH_PASSWORD']
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "口コミ投稿", type: :system do
+RSpec.describe '口コミ投稿', type: :system do
   before do
     @item = FactoryBot.create(:item)
     @comment = Faker::Lorem.sentence
@@ -26,9 +26,9 @@ RSpec.describe "口コミ投稿", type: :system do
     # フォームに情報を入力する
     fill_in 'comment_text', with: @comment
     # コメントを送信すると、Commentモデルのカウントが1上がることを確認する
-    expect{
+    expect  do
       find('input[name="commit"]').click
-    }.to change { Comment.count }.by(1)
+    end.to change { Comment.count }.by(1)
     # 詳細ページにリダイレクトされることを確認する
     expect(current_path).to eq(item_path(@item))
   end
