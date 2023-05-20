@@ -68,7 +68,7 @@
 
 | Column  | Type       | Options                       |
 | ------- | ---------- | ----------------------------- |
-| comment | text       | null: false                   |
+| text    | text       | null: false                   |
 | rate    | float      | null: false                   |
 | user    | integer    | null: false                   |
 | item    | integer    | null: false                   |
