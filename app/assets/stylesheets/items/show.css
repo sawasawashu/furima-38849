@@ -142,46 +142,31 @@
 /* /商品の概要 */
 
 .comment-box {
-  width: 40vw;
-  background-color: #fff;
+  width: 50vw;
+  background-color: white;
   margin: 5vh 0;
   text-align: center;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  box-sizing: border-box;
 }
 
-.comment-text {
-  width: 100%;
-  height: 100px;
+form textarea {
+  width: 95%;
   padding: 10px;
-  border: solid 2px #dedede;
-  resize: none;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+  margin-top: 10px
 }
 
-.comment-warn {
-  padding: 10px;
-  font-size: 14px;
-  margin: 10px 0px;
-  text-align: left;
-}
-
-.comment-btn {
-  line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+.submit-botton{
+  background-color: #57C3E9;
+  border-radius: 20px;
   color: #fff;
-  width: 50%;
-  min-width: 150px;
+  border: 0;
   font-size: 18px;
-  border-radius: 100px;
-  margin-bottom: 2vh;
-}
-
-.comment-flag {
-  display: flex;
-  justify-content: center;
-}
-
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
+  width: 30%;
+  margin: 10px;
 }
 
 .links {
@@ -205,3 +190,4 @@
   font-weight: bold;
   font-size: 23px;
 }
+
