@@ -70,8 +70,8 @@
 | ------- | ---------- | ----------------------------- |
 | comment | text       | null: false                   |
 | rate    | float      | null: false                   |
-| user    | references | null: false,foreign_key: true |
-| item    | references | null: false,foreign_key: true |
+| user    | integer    | null: false                   |
+| item    | integer    | null: false                   |
 
 ## Association
 -- belongs_to :user

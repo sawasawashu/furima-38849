@@ -34,13 +34,11 @@ ActiveRecord::Schema.define(version: 2023_05_20_051128) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "comment", null: false
-    t.bigint "item_id", null: false
-    t.bigint "user_id", null: false
+    t.text "text", null: false
+    t.integer "user_id", null: false
+    t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_comments_on_item_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,8 +97,6 @@ ActiveRecord::Schema.define(version: 2023_05_20_051128) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "items"
-  add_foreign_key "comments", "users"
   add_foreign_key "items", "users"
   add_foreign_key "profiles", "purchasers"
   add_foreign_key "purchasers", "items"
