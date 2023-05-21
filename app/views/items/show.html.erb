@@ -96,6 +96,7 @@
           <%= comment.text %>
            <% if comment.user == current_user%>
             <%= link_to "編集", edit_item_comment_path(@item.id,comment.id), method: :get , class:"comment-btn"%>
+            <%= link_to "削除", item_comment_path(@item.id,comment.id), method: :delete , class:"comment-destroy"%>
            <%end%>
         </p>
       <% end %>
