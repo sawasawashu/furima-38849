@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :set_comment, only: [:edit, :update]
+  before_action :move_to_index,only: :edit
 
   def create
     comment = Comment.create(comment_params)
@@ -28,4 +29,11 @@ class CommentsController < ApplicationController
     @item = Item.find(params[:item_id])
     @comment = Comment.find(params[:id])
   end
+
+  def move_to_index
+    return if current_user == @comment.user
+
+    redirect_to root_path
+  end
+
 end
