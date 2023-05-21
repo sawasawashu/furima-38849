@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+  
+
   private
 
   def comment_params
