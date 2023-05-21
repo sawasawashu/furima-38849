@@ -94,9 +94,9 @@
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %>：</strong>
           <%= comment.text %>
-          <% if comment.user == current_user%>
-           <%= link_to "編集", edit_comment_path(comment.id), method: :get %>
-          <%end%>
+           <% if comment.user == current_user%>
+            <%= link_to "編集", edit_comment_path(comment.id), method: :get , class:"comment-btn"%>
+           <%end%>
         </p>
       <% end %>
    </div>
