@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
-
   before_action :set_comment, only: [:edit, :update]
-  before_action :move_to_index,only: :edit
+  before_action :move_to_index, only: :edit
 
   def create
     comment = Comment.create(comment_params)
@@ -35,5 +34,4 @@ class CommentsController < ApplicationController
 
     redirect_to root_path
   end
-
 end
