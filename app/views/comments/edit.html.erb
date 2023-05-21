@@ -1,0 +1,17 @@
+<%= render "shared/second-header"%>
+
+<%= form_with(model: [@item, @comment],class: 'text-box-main',local: true) do |f| %>
+<div class="text-box">
+  <div class='text-form-top'>
+    <h1 class='text-form-header'>
+      口コミ編集
+    </h1>
+  <%= f.text_area :text, class:'text-default',placeholder: "text", rows: "10" %>
+  <div class='text-btn'>
+   <%= f.submit "編  集" , class:"text-red-btn"%>
+   <%=link_to 'もどる', item_path(@comment.item_id), method: :get ,class:"text-back-btn"%>
+  </div>
+</div>
+<% end %>
+
+<%= render "shared/second-footer"%>
