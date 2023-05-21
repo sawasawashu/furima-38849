@@ -5,10 +5,19 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:item_id])
     @comment = Comment.find(params[:id])
   end
 
-  
+  def update
+    @item = Item.find(params[:item_id])
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to item_path(@item.id)
+    else
+      render :edit
+    end
+  end
 
   private
 
