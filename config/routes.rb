@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :purchasers, only: [:index,:create]
     resources :comments, only: :create
   end
+  resources :comments,only: :edit
 end
