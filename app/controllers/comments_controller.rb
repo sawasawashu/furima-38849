@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit,:destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
 
   def create
     comment = Comment.create(comment_params)
