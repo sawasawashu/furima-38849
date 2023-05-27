@@ -82,6 +82,20 @@
      <% if user_signed_in? %>
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
         <%= form.text_area :text, class:"comment-text", placeholder: "口コミを投稿する", rows: "3" %>
+        <div class="field" id="star">
+          <%= form.label :rate, "星評価："%>
+          <%= form.hidden_field :rate,id: :review_star %>
+          <script>
+            $('#star').raty({
+               size     : 36,
+               starOff:  '<%= asset_path('star-off.png') %>',
+               starOn : '<%= asset_path('star-on.png') %>',
+               starHalf: '<%= asset_path('star-half.png') %>',
+               scoreName: 'comment[rate]',  
+               half: true,   
+            });
+          </script>
+        </div>
         <%= form.submit "SEND" ,class:"submit-botton" %>
       <% end %>
      <%else%>
