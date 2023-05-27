@@ -108,12 +108,36 @@
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %>：</strong>
           <%= comment.text%>
+          <div id="star-rate<%= comment.id %>"></div>  
+          <script>
+            $('#star-rate<%= comment.id%>').raty({
+             size      : 36,
+             starOff   : '<%= asset_path('star-off.png') %>',
+             starOn    : '<%= asset_path('star-on.png') %>',
+             starHalf: '<%= asset_path('star-half.png') %>',
+             half: true,
+             readOnly: true, 
+             score: <%= comment.rate %>,
+             });
+          </script>
            <% if comment.user == current_user%>
              <%= link_to "編集", edit_item_comment_path(@item.id,comment.id), method: :get , class:"comment-btn"%>
              <%= link_to "削除", item_comment_path(@item.id,comment.id), method: :delete , class:"comment-destroy"%>
            <%end%>
         </p>
       <% end %>
+      <div id="star-rate<%= @comment.id %>"><h2 class="rank">総合評価</h2></div>  
+      <script>
+        $('#star-rate<%= @comment.id%>').raty({
+         size      : 36,
+         starOff   : '<%= asset_path('star-off.png') %>',
+         starOn    : '<%= asset_path('star-on.png') %>',
+         starHalf: '<%= asset_path('star-half.png') %>',
+         half: true,
+         readOnly: true, 
+         score: <%= @item.comments.average(:rate).to_f.round(1) %>,
+        });
+      </script>
    </div>
   <div class="links">
     <a href="#" class="change-item-btn">
