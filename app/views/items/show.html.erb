@@ -107,10 +107,10 @@
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %>：</strong>
-          <%= comment.text %>
+          <%= comment.text%>
            <% if comment.user == current_user%>
-            <%= link_to "編集", edit_item_comment_path(@item.id,comment.id), method: :get , class:"comment-btn"%>
-            <%= link_to "削除", item_comment_path(@item.id,comment.id), method: :delete , class:"comment-destroy"%>
+             <%= link_to "編集", edit_item_comment_path(@item.id,comment.id), method: :get , class:"comment-btn"%>
+             <%= link_to "削除", item_comment_path(@item.id,comment.id), method: :delete , class:"comment-destroy"%>
            <%end%>
         </p>
       <% end %>
