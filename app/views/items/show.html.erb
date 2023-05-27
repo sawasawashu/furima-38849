@@ -81,7 +81,7 @@
    <div class="comment-box">
      <% if user_signed_in? %>
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "口コミを投稿する", rows: "3" %>
+        <%= form.text_area :text, class:"comment-text", placeholder: "口コミを投稿する", rows: "3" %>
         <%= form.submit "SEND" ,class:"submit-botton" %>
       <% end %>
      <%else%>

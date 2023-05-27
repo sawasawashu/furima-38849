@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.comment-text{
+  resize: none;
+}
+
 .item-box>.name {
   text-align: center;
   font-weight: bold;
