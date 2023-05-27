@@ -8,7 +8,9 @@ require("@rails/activestorage").start()
 require("channels")
 require("../price")
 require("../card")
-require('jquery')
+require("jquery")  
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
