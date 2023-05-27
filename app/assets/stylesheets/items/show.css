@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.comment-text{
+  resize: none;
+}
+
 .item-box>.name {
   text-align: center;
   font-weight: bold;
@@ -215,4 +219,13 @@ h4{
   padding: 5px;
   border-radius: 20px;
   color: #f8f8f8;
+}
+
+.field{
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  color: #ea352d;
 }
