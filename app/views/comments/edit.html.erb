@@ -7,6 +7,22 @@
       口コミ編集
     </h1>
   <%= f.text_area :text, class:'text-default',placeholder: "text", rows: "10" %>
+  <div class="field" id="star">
+    <%= f.label :rate, "星評価："%>
+    <%= f.hidden_field :rate,id: :review_star %>
+      <script>
+       $('#star').raty({
+         size     : 36,
+         starOff:  '<%= asset_path('star-off.png') %>',
+         starOn : '<%= asset_path('star-on.png') %>',
+         starHalf: '<%= asset_path('star-half.png') %>',
+         scoreName: 'comment[rate]',  
+         half: true,   
+         score: <%= @comment.rate %>, 
+         scoreName: 'comment[rate]',   
+        });
+      </script>
+  </div>
   <div class='text-btn'>
    <%= f.submit "編  集" , class:"text-red-btn"%>
    <%=link_to 'もどる', item_path(@comment.item_id), method: :get ,class:"text-back-btn"%>
