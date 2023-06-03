@@ -83,7 +83,7 @@
       <%= form_with(model: [@item, @comment], local: true) do |form| %>
         <%= form.text_area :text, class:"comment-text", placeholder: "口コミを投稿する", rows: "3" %>
         <div class="field" id="star">
-          <%= form.label :rate, "星評価："%>
+          <%= form.label :rate, "評　価："%>
           <%= form.hidden_field :rate,id: :review_star %>
           <script>
             $('#star').raty({
@@ -103,7 +103,7 @@
      <%end%>
    </div>
    <div class="comments">
-      <h4>＜口コミ一覧＞</h4>
+      <h4 class="top-message">＜口コミ一覧＞</h4>
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %>：</strong>

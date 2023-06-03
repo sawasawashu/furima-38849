@@ -203,8 +203,9 @@ form textarea {
   margin-bottom: 20px;;
 }
 
-h4{
+.top-message{
   color: violet;
+  font-size: 24px;
 }
 
 .comment-btn{
