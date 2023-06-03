@@ -126,7 +126,7 @@
            <%end%>
         </p>
       <% end %>
-      <div id="star-rate<%= @comment.id %>"><h2 class="rank">総合評価</h2></div>  
+      <div id="star-rate<%= @comment.id %>"><h2 class="rank">総合評価（<%= @item.comments.average(:rate).to_f.round(1) %>点）</h2></div>  
       <script>
         $('#star-rate<%= @comment.id%>').raty({
          size      : 36,
