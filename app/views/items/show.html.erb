@@ -40,7 +40,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user.nickname %></td>
+          <td class="detail-value"><a href ="/users/<%=@item.user.id%>"><%= @item.user.nickname%></a></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
@@ -106,7 +106,7 @@
       <h4 class="top-message">＜口コミ一覧＞</h4>
       <% @comments.each do |comment| %>
         <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{@comment.user_id}" %>：</strong>
+          <strong><a href ="/users/<%=comment.user.id%>"><%= comment.user.nickname%></a>：</strong>
           <%= comment.text%>
           <div id="star-rate<%= comment.id %>"></div>  
           <script>
