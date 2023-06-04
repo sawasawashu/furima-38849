@@ -4,6 +4,20 @@
     <div class="subtitle" >
       <%=@nickname%>の商品一覧
     </div>
+    
+    <div id="star-rate<%= @comment.id %>"><h2 class="rank">総合評価（<%= @user.comments.average(:rate).to_f.round(1) %>点）</h2></div>  
+      <script>
+        $('#star-rate<%= @comment.id%>').raty({
+         size      : 36,
+         starOff   : '<%= asset_path('star-off.png') %>',
+         starOn    : '<%= asset_path('star-on.png') %>',
+         starHalf: '<%= asset_path('star-half.png') %>',
+         half: true,
+         readOnly: true, 
+         score: <%= @user.comments.average(:rate).to_f.round(1) %>,
+        });
+      </script>
+
     <ul class='item-lists'>
 
       <% @items.each do |item| %>
