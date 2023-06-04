@@ -25,6 +25,8 @@ RSpec.describe '口コミ投稿', type: :system do
     visit item_path(@item)
     # フォームに情報を入力する
     fill_in 'comment_text', with: @comment
+    # 星ボタンをクリックする
+    find('#star').find("img[alt='5']").click
     # コメントを送信すると、Commentモデルのカウントが1上がることを確認する
     expect  do
       find('input[name="commit"]').click
